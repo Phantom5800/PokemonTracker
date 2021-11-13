@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PokemonTracker"
         mc:Ignorable="d"
         Background="DimGray"
+        RenderOptions.BitmapScalingMode="HighQuality"
         Title="Pokémon Tracker" Height="1180" Width="880" MinHeight="250" MinWidth="200">
     <Grid Margin="10,10,10,10">
         <DockPanel Margin="0,0,0,20">

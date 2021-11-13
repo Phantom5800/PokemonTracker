@@ -12,6 +12,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>LetsGo.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Pokepark.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Pokepark.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +25,14 @@
       <LastGenOutput>LetsGo.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pokepark.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Pokepark.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Pokepark\" />
   </ItemGroup>
 
 </Project>

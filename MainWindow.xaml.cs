@@ -28,6 +28,8 @@ namespace PokemonTracker
         {
             [Description("Let's Go")]
             LetsGo,
+            [Description("Poképark")]
+            Pokepark,
             [Description("Sword / Shield")]
             SwSh
         }
@@ -49,10 +51,12 @@ namespace PokemonTracker
 
         // page state
         private int _pokemonCnt = 0;
+        private ResourceManager _previousResourceSet = null;
 
         public MainWindow()
         {
             InitializeComponent();
+
             _gameSelector = FindName("GameSelector") as ComboBox;
             _imageSet = FindName("ImageSet") as WrapPanel;
             _pokemonCountField = FindName("PokemonCount") as TextBlock;
@@ -91,17 +95,23 @@ namespace PokemonTracker
         {
             _pokemonCountField.Text = "0";
             _imageSet.Children.Clear();
+            _previousResourceSet?.ReleaseAllResources();
 
             switch (game)
             {
                 case GameList.LetsGo:
                     BuildImageSetFromResources(PokemonTracker.Resources.LetsGo.ResourceManager);
                     break;
+
+                case GameList.Pokepark:
+                    BuildImageSetFromResources(PokemonTracker.Resources.Pokepark.ResourceManager);
+                    break;
             }
         }
 
         private void BuildImageSetFromResources(ResourceManager resourceManager)
         {
+            _previousResourceSet = resourceManager;
             ResourceSet resourceList = resourceManager.GetResourceSet(System.Globalization.CultureInfo.InvariantCulture, true, false);
 
             if (resourceList != null)
