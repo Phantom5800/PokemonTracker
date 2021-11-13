@@ -35,4 +35,10 @@
     <Folder Include="Resources\Pokepark\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="LICENSE.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
