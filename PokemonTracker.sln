@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonTracker", "PokemonTracker.csproj", "{62155970-3313-4CEA-80D0-EBEC2889D6DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62155970-3313-4CEA-80D0-EBEC2889D6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62155970-3313-4CEA-80D0-EBEC2889D6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62155970-3313-4CEA-80D0-EBEC2889D6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62155970-3313-4CEA-80D0-EBEC2889D6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {538FA84C-56A4-45DE-9C3F-4819A411F688}
+	EndGlobalSection
+EndGlobal
