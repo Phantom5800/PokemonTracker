@@ -283,9 +283,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _023 {
+        internal static byte[] _023_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("023", resourceCulture);
+                object obj = ResourceManager.GetObject("023(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _024 {
+        internal static byte[] _024_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("024", resourceCulture);
+                object obj = ResourceManager.GetObject("024(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -323,9 +323,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _027 {
+        internal static byte[] _027_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("027", resourceCulture);
+                object obj = ResourceManager.GetObject("027(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _028 {
+        internal static byte[] _028_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("028", resourceCulture);
+                object obj = ResourceManager.GetObject("028(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -423,9 +423,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _037 {
+        internal static byte[] _037_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("037", resourceCulture);
+                object obj = ResourceManager.GetObject("037(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -433,9 +433,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _038 {
+        internal static byte[] _038_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("038", resourceCulture);
+                object obj = ResourceManager.GetObject("038(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -483,9 +483,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _043 {
+        internal static byte[] _043_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("043", resourceCulture);
+                object obj = ResourceManager.GetObject("043(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -493,9 +493,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _044 {
+        internal static byte[] _044_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("044", resourceCulture);
+                object obj = ResourceManager.GetObject("044(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -503,9 +503,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _045 {
+        internal static byte[] _045_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("045", resourceCulture);
+                object obj = ResourceManager.GetObject("045(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -573,9 +573,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _052 {
+        internal static byte[] _052_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("052", resourceCulture);
+                object obj = ResourceManager.GetObject("052(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -583,9 +583,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _053 {
+        internal static byte[] _053_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("053", resourceCulture);
+                object obj = ResourceManager.GetObject("053(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -613,9 +613,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _056 {
+        internal static byte[] _056_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("056", resourceCulture);
+                object obj = ResourceManager.GetObject("056(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -623,9 +623,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _057 {
+        internal static byte[] _057_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("057", resourceCulture);
+                object obj = ResourceManager.GetObject("057(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -633,9 +633,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _058 {
+        internal static byte[] _058_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("058", resourceCulture);
+                object obj = ResourceManager.GetObject("058(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -643,9 +643,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _059 {
+        internal static byte[] _059_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("059", resourceCulture);
+                object obj = ResourceManager.GetObject("059(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -743,9 +743,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _069 {
+        internal static byte[] _069_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("069", resourceCulture);
+                object obj = ResourceManager.GetObject("069(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -753,9 +753,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _070 {
+        internal static byte[] _070_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("070", resourceCulture);
+                object obj = ResourceManager.GetObject("070(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -763,9 +763,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _071 {
+        internal static byte[] _071_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("071", resourceCulture);
+                object obj = ResourceManager.GetObject("071(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -933,9 +933,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _088 {
+        internal static byte[] _088_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("088", resourceCulture);
+                object obj = ResourceManager.GetObject("088(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -943,9 +943,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _089 {
+        internal static byte[] _089_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("089", resourceCulture);
+                object obj = ResourceManager.GetObject("089(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1143,9 +1143,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _109 {
+        internal static byte[] _109_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("109", resourceCulture);
+                object obj = ResourceManager.GetObject("109(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1153,9 +1153,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _110 {
+        internal static byte[] _110_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("110", resourceCulture);
+                object obj = ResourceManager.GetObject("110(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1283,9 +1283,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _123 {
+        internal static byte[] _123_Pikachu_ {
             get {
-                object obj = ResourceManager.GetObject("123", resourceCulture);
+                object obj = ResourceManager.GetObject("123(Pikachu)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1323,9 +1323,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _127 {
+        internal static byte[] _127_Eevee_ {
             get {
-                object obj = ResourceManager.GetObject("127", resourceCulture);
+                object obj = ResourceManager.GetObject("127(Eevee)", resourceCulture);
                 return ((byte[])(obj));
             }
         }

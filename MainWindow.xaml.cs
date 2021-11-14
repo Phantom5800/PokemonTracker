@@ -28,6 +28,10 @@ namespace PokemonTracker
         {
             [Description("Let's Go")]
             LetsGo,
+            [Description("Let's Go, Pikachu")]
+            LetsGoPikachu,
+            [Description("Let's Go, Eevee")]
+            LetsGoEevee,
             [Description("Poképark")]
             Pokepark,
             [Description("Sword / Shield")]
@@ -38,9 +42,6 @@ namespace PokemonTracker
         private ComboBox _gameSelector = null;
         private WrapPanel _imageSet = null;
         private TextBlock _pokemonCountField = null;
-
-        // image files
-        private string[] _resources = new string[Enum.GetValues(typeof(GameList)).Length];
 
         // program styles
         private Style _pokemonSelectorStyle = new Style(typeof(ToggleButton));
@@ -80,15 +81,6 @@ namespace PokemonTracker
                     _gameSelector.Items.Add(desc[0].Description);
                 }
             }
-
-            string[] resourceFiles = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
-            for (int i = 1; i < resourceFiles.Length; ++i)
-            {
-                if (resourceFiles[i].Contains("LetsGo"))
-                {
-                    _resources[(int)GameList.LetsGo] = resourceFiles[i];
-                }
-            }
         }
 
         private void UpdateImageSet(GameList game)
@@ -100,7 +92,9 @@ namespace PokemonTracker
             switch (game)
             {
                 case GameList.LetsGo:
-                    BuildImageSetFromResources(PokemonTracker.Resources.LetsGo.ResourceManager);
+                case GameList.LetsGoPikachu:
+                case GameList.LetsGoEevee:
+                    BuildImageSetFromResources(PokemonTracker.Resources.LetsGo.ResourceManager, GetDropFilter(game));
                     break;
 
                 case GameList.Pokepark:
@@ -109,7 +103,24 @@ namespace PokemonTracker
             }
         }
 
-        private void BuildImageSetFromResources(ResourceManager resourceManager)
+        private string GetDropFilter(GameList game)
+        {
+            switch (game)
+            {
+                case GameList.LetsGoEevee:
+                    return "(Pikachu)";
+                case GameList.LetsGoPikachu:
+                    return "(Eevee)";
+            }
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Load images based on given parameters.
+        /// </summary>
+        /// <param name="resourceManager">Resource set to load images from.</param>
+        /// <param name="dropFilter">If a resource file contains this string, do not include it in the results.</param>
+        private void BuildImageSetFromResources(ResourceManager resourceManager, string dropFilter = "")
         {
             _previousResourceSet = resourceManager;
             ResourceSet resourceList = resourceManager.GetResourceSet(System.Globalization.CultureInfo.InvariantCulture, true, false);
@@ -119,7 +130,12 @@ namespace PokemonTracker
                 List<string> resourceKeys = new List<string>();
                 foreach (DictionaryEntry resource in resourceList)
                 {
-                    resourceKeys.Add(resource.Key as string);
+                    string key = resource.Key as string;
+                    // do not include any images with the drop filter set, used to filter out version specifics
+                    if (dropFilter == "" || !key.Contains(dropFilter))
+                    {
+                        resourceKeys.Add(resource.Key as string);
+                    }
                 }
                 resourceKeys.Sort();
 
