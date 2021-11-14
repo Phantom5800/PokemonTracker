@@ -62,6 +62,10 @@ namespace PokemonTracker
             _imageSet = FindName("ImageSet") as WrapPanel;
             _pokemonCountField = FindName("PokemonCount") as TextBlock;
 
+            // disable keyboard and mouse events from accidentally scrolling the game list
+            _gameSelector.KeyDown += KeyDown_DropEvent;
+            _gameSelector.PreviewKeyDown += KeyDown_DropEvent;
+
             // build styles
             _pokemonSelectorStyle.TargetType = typeof(ToggleButton);
             _pokemonSelectorStyle.Setters.Add(new Setter(BackgroundProperty, Brushes.DarkGray));
@@ -149,6 +153,8 @@ namespace PokemonTracker
                     toggle.Height = _pokemonButtonHeight;
                     toggle.Style = _pokemonSelectorStyle;
                     toggle.Click += PokemonButton_Click;
+                    toggle.KeyDown += KeyDown_DropEvent;
+                    toggle.PreviewKeyDown += KeyDown_DropEvent;
 
                     Image image = new Image();
                     image.Source = convertedImg;
@@ -157,6 +163,11 @@ namespace PokemonTracker
                     _imageSet.Children.Add(toggle);
                 }
             }
+        }
+
+        private void KeyDown_DropEvent(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
         }
 
         private void PokemonButton_Click(object sender, RoutedEventArgs e)
