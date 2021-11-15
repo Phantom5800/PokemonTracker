@@ -10,6 +10,14 @@
         Title="Pokémon Tracker" Height="1180" Width="880" MinHeight="250" MinWidth="200">
     <Grid Margin="10,10,10,10">
         <DockPanel Margin="0,0,0,20">
+            <Menu DockPanel.Dock="Top" Margin="-10,-10,-10,10">
+                <MenuItem Header="File">
+                    <MenuItem Header="Exit" Click="File_Exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About" Click="Help_About_Click"/>
+                </MenuItem>
+            </Menu>
             <ComboBox DockPanel.Dock="Top" Height="25" Name="GameSelector" SelectionChanged="GameSelector_SelectionChanged">
             </ComboBox>
             <WrapPanel DockPanel.Dock="Top" >

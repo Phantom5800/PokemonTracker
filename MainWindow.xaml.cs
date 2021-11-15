@@ -33,9 +33,7 @@ namespace PokemonTracker
             [Description("Let's Go, Eevee")]
             LetsGoEevee,
             [Description("Poképark")]
-            Pokepark,
-            [Description("Sword / Shield")]
-            SwSh
+            Pokepark
         }
 
         // important page elements
@@ -56,8 +54,6 @@ namespace PokemonTracker
 
         public MainWindow()
         {
-            InitializeComponent();
-
             _gameSelector = FindName("GameSelector") as ComboBox;
             _imageSet = FindName("ImageSet") as WrapPanel;
             _pokemonCountField = FindName("PokemonCount") as TextBlock;
@@ -187,6 +183,16 @@ namespace PokemonTracker
         {
             int selected = (sender as ComboBox)?.SelectedIndex ?? 0;
             UpdateImageSet((GameList)selected);
+        }
+
+        private void File_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Help_About_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Test");
         }
     }
 }
