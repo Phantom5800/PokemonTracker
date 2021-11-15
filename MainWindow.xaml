@@ -20,7 +20,7 @@
             </Menu>
             <ComboBox DockPanel.Dock="Top" Height="25" Name="GameSelector" SelectionChanged="GameSelector_SelectionChanged">
             </ComboBox>
-            <WrapPanel DockPanel.Dock="Top" >
+            <WrapPanel DockPanel.Dock="Top">
                 <TextBlock Height="25" Foreground="WhiteSmoke" FontSize="18">Total Pokémon:</TextBlock>
                 <TextBlock Height="25" Margin="5,0,0,0" Foreground="WhiteSmoke" FontSize="18" FontWeight="Bold" Name="PokemonCount">0</TextBlock>
             </WrapPanel>

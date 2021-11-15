@@ -54,6 +54,8 @@ namespace PokemonTracker
 
         public MainWindow()
         {
+            InitializeComponent();
+
             _gameSelector = FindName("GameSelector") as ComboBox;
             _imageSet = FindName("ImageSet") as WrapPanel;
             _pokemonCountField = FindName("PokemonCount") as TextBlock;
@@ -192,7 +194,8 @@ namespace PokemonTracker
 
         private void Help_About_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Test");
+            Utils.About aboutWnd = new Utils.About();
+            aboutWnd.Show();
         }
     }
 }
