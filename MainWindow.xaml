@@ -12,6 +12,8 @@
         <DockPanel Margin="0,0,0,20">
             <Menu DockPanel.Dock="Top" Margin="-10,-10,-10,10">
                 <MenuItem Header="File">
+                    <MenuItem Header="Preferences" Click="File_Preferences_Click"/>
+                    <Separator/>
                     <MenuItem Header="Exit" Click="File_Exit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Help">

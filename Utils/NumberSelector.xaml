@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="PokemonTracker.Utils.NumberSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PokemonTracker.Utils"
+             mc:Ignorable="d" 
+             d:DesignHeight="25" d:DesignWidth="100">
+    <Grid>
+        <TextBox x:Name="TextField" TextAlignment="Center" PreviewTextInput="TextField_FilterBadInputs" KeyDown="TextField_KeyDown" LostFocus="TextField_LostFocus"/>
+        <RepeatButton FontFamily="Marlett" Content="5" FontSize="8" Width="15" Height="10" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,-10,0,0" Click="Button_Increment"/>
+        <RepeatButton FontFamily="Marlett" Content="6" FontSize="8" Width="15" Height="10" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,0" Click="Button_Decrement"/>
+    </Grid>
+</UserControl>

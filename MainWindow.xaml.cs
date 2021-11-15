@@ -36,17 +36,11 @@ namespace PokemonTracker
             Pokepark
         }
 
-        // important page elements
-        private ComboBox _gameSelector = null;
-        private WrapPanel _imageSet = null;
-        private TextBlock _pokemonCountField = null;
-
         // program styles
         private Style _pokemonSelectorStyle = new Style(typeof(ToggleButton));
 
         // settings
-        private int _pokemonButtonHeight = 75;
-        private int _pokemonButtonWidth = 75;
+        public static int PokemonButtonSize { get; set; } = 75;
 
         // page state
         private int _pokemonCnt = 0;
@@ -56,13 +50,11 @@ namespace PokemonTracker
         {
             InitializeComponent();
 
-            _gameSelector = FindName("GameSelector") as ComboBox;
-            _imageSet = FindName("ImageSet") as WrapPanel;
-            _pokemonCountField = FindName("PokemonCount") as TextBlock;
+            Utils.Preferences.OnApplyPreferences += Preferences_OnApplyPreferences;
 
             // disable keyboard and mouse events from accidentally scrolling the game list
-            _gameSelector.KeyDown += KeyDown_DropEvent;
-            _gameSelector.PreviewKeyDown += KeyDown_DropEvent;
+            GameSelector.KeyDown += KeyDown_DropEvent;
+            GameSelector.PreviewKeyDown += KeyDown_DropEvent;
 
             // build styles
             _pokemonSelectorStyle.TargetType = typeof(ToggleButton);
@@ -80,15 +72,27 @@ namespace PokemonTracker
                 DescriptionAttribute[] desc = (DescriptionAttribute[])game.GetType().GetField(game.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
                 if (desc?.Length > 0)
                 {
-                    _gameSelector.Items.Add(desc[0].Description);
+                    GameSelector.Items.Add(desc[0].Description);
+                }
+            }
+        }
+
+        private void Preferences_OnApplyPreferences()
+        {
+            foreach (var child in ImageSet.Children)
+            {
+                ToggleButton button = child as ToggleButton;
+                if (button != null)
+                {
+                    button.Width = button.Height = PokemonButtonSize;
                 }
             }
         }
 
         private void UpdateImageSet(GameList game)
         {
-            _pokemonCountField.Text = "0";
-            _imageSet.Children.Clear();
+            PokemonCount.Text = "0";
+            ImageSet.Children.Clear();
             _previousResourceSet?.ReleaseAllResources();
 
             switch (game)
@@ -147,8 +151,8 @@ namespace PokemonTracker
                     BitmapSource convertedImg = (new ImageSourceConverter()).ConvertFrom(img) as BitmapSource;
 
                     ToggleButton toggle = new ToggleButton();
-                    toggle.Width = _pokemonButtonWidth;
-                    toggle.Height = _pokemonButtonHeight;
+                    toggle.Width = PokemonButtonSize;
+                    toggle.Height = PokemonButtonSize;
                     toggle.Style = _pokemonSelectorStyle;
                     toggle.Click += PokemonButton_Click;
                     toggle.KeyDown += KeyDown_DropEvent;
@@ -158,7 +162,7 @@ namespace PokemonTracker
                     image.Source = convertedImg;
 
                     toggle.Content = image;
-                    _imageSet.Children.Add(toggle);
+                    ImageSet.Children.Add(toggle);
                 }
             }
         }
@@ -177,7 +181,7 @@ namespace PokemonTracker
                 int change = (selected) ? 1 : -1;
                 _pokemonCnt += change;
 
-                _pokemonCountField.Text = _pokemonCnt.ToString();
+                PokemonCount.Text = _pokemonCnt.ToString();
             }
         }
 
@@ -190,6 +194,12 @@ namespace PokemonTracker
         private void File_Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void File_Preferences_Click(object sender, RoutedEventArgs e)
+        {
+            Utils.Preferences prefWnd = new Utils.Preferences();
+            prefWnd.Show();
         }
 
         private void Help_About_Click(object sender, RoutedEventArgs e)
