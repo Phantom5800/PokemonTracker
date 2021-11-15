@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         
         <TextBlock Grid.Column="0" Grid.Row="0" Foreground="WhiteSmoke" FontWeight="Bold">Pokémon Size: </TextBlock>
-        <local:NumberSelector Grid.Column="1" Grid.Row="0" x:Name="PokemonSize" MinValue="25" MaxValue="150" Value="75"/>
+        <local:NumberSelector Grid.Column="1" Grid.Row="0" x:Name="PokemonSize" MinValue="25" MaxValue="150"/>
 
         <Button Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center" Click="ApplyChanges_Click">Apply Changes</Button>
 

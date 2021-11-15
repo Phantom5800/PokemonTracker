@@ -23,6 +23,7 @@ namespace PokemonTracker.Utils
         public Preferences()
         {
             InitializeComponent();
+            PokemonSize.Value = MainWindow.PokemonButtonSize;
         }
 
         private void ApplyChanges_Click(object sender, RoutedEventArgs e)
