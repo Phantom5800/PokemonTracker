@@ -40,7 +40,7 @@ namespace PokemonTracker
         private Style _pokemonSelectorStyle = new Style(typeof(ToggleButton));
 
         // settings
-        public static int PokemonButtonSize { get; set; } = 75;
+        public static int PokemonButtonSize { get; set; } = 50;
 
         // page state
         private int _pokemonCnt = 0;
