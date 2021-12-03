@@ -703,9 +703,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _065 {
+        internal static byte[] _065_Trade_ {
             get {
-                object obj = ResourceManager.GetObject("065", resourceCulture);
+                object obj = ResourceManager.GetObject("065(Trade)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -733,9 +733,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _068 {
+        internal static byte[] _068_Trade_ {
             get {
-                object obj = ResourceManager.GetObject("068", resourceCulture);
+                object obj = ResourceManager.GetObject("068(Trade)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -813,9 +813,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _076 {
+        internal static byte[] _076_Trade_ {
             get {
-                object obj = ResourceManager.GetObject("076", resourceCulture);
+                object obj = ResourceManager.GetObject("076(Trade)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -993,9 +993,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _094 {
+        internal static byte[] _094_Trade_ {
             get {
-                object obj = ResourceManager.GetObject("094", resourceCulture);
+                object obj = ResourceManager.GetObject("094(Trade)", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1563,9 +1563,9 @@ namespace PokemonTracker.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _151 {
+        internal static byte[] _151_Mythic_ {
             get {
-                object obj = ResourceManager.GetObject("151", resourceCulture);
+                object obj = ResourceManager.GetObject("151(Mythic)", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -310,7 +310,7 @@
   <data name="064" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\064.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="065" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="065(Trade)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\065.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="066" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -319,7 +319,7 @@
   <data name="067" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\067.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="068" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="068(Trade)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\068.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="069(Eevee)" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -343,7 +343,7 @@
   <data name="075" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\075.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="076" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="076(Trade)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\076.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="077" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -397,7 +397,7 @@
   <data name="093" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\093.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="094" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="094(Trade)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\094.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="095" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -568,7 +568,7 @@
   <data name="150" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\150.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="151" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="151(Mythic)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\151.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

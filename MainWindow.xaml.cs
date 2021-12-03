@@ -28,9 +28,9 @@ namespace PokemonTracker
         {
             [Description("Let's Go")]
             LetsGo,
-            [Description("Let's Go, Pikachu")]
+            [Description("Let's Go, Pikachu (All Obtainable)")]
             LetsGoPikachu,
-            [Description("Let's Go, Eevee")]
+            [Description("Let's Go, Eevee (All Obtainable)")]
             LetsGoEevee,
             [Description("Poképark")]
             Pokepark
@@ -91,6 +91,7 @@ namespace PokemonTracker
 
         private void UpdateImageSet(GameList game)
         {
+            _pokemonCnt = 0;
             PokemonCount.Text = "0";
             ImageSet.Children.Clear();
             _previousResourceSet?.ReleaseAllResources();
@@ -109,16 +110,16 @@ namespace PokemonTracker
             }
         }
 
-        private string GetDropFilter(GameList game)
+        private string[] GetDropFilter(GameList game)
         {
             switch (game)
             {
                 case GameList.LetsGoEevee:
-                    return "(Pikachu)";
+                    return new string[] { "(Pikachu)", "(Trade)", "(Mythic)" };
                 case GameList.LetsGoPikachu:
-                    return "(Eevee)";
+                    return new string[] { "(Eevee)", "(Trade)", "(Mythic)" };
             }
-            return string.Empty;
+            return null;
         }
 
         /// <summary>
@@ -126,7 +127,7 @@ namespace PokemonTracker
         /// </summary>
         /// <param name="resourceManager">Resource set to load images from.</param>
         /// <param name="dropFilter">If a resource file contains this string, do not include it in the results.</param>
-        private void BuildImageSetFromResources(ResourceManager resourceManager, string dropFilter = "")
+        private void BuildImageSetFromResources(ResourceManager resourceManager, string[] dropFilter = null)
         {
             _previousResourceSet = resourceManager;
             ResourceSet resourceList = resourceManager.GetResourceSet(System.Globalization.CultureInfo.InvariantCulture, true, false);
@@ -137,8 +138,20 @@ namespace PokemonTracker
                 foreach (DictionaryEntry resource in resourceList)
                 {
                     string key = resource.Key as string;
+                    bool drop = false;
+                    if (dropFilter != null)
+                    {
+                        for (int i = 0; i < dropFilter.Length; ++i)
+                        {
+                            if (key.Contains(dropFilter[i]))
+                            {
+                                drop = true;
+                                break;
+                            }
+                        }
+                    }
                     // do not include any images with the drop filter set, used to filter out version specifics
-                    if (dropFilter == "" || !key.Contains(dropFilter))
+                    if (!drop)
                     {
                         resourceKeys.Add(resource.Key as string);
                     }
