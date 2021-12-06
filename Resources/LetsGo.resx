@@ -274,7 +274,7 @@
   <data name="052(Eevee)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\052.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="053(Eevee)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="053" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\053.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="054" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -292,7 +292,7 @@
   <data name="058(Pikachu)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\058.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="059(Pikachu)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="059" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>LetsGo\059.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="060" type="System.Resources.ResXFileRef, System.Windows.Forms">
