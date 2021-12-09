@@ -41,10 +41,53 @@ namespace PokemonTracker
 
         // settings
         public static int PokemonButtonSize { get; set; } = 50;
+        public static bool ShowPlannedPokemon { get; set; } = true;
 
         // page state
         private int _pokemonCnt = 0;
+        private int _plannedCnt = 0;
         private ResourceManager _previousResourceSet = null;
+
+        private class PokemonButton : ToggleButton
+        {
+            public enum ButtonState
+            {
+                Unselected,
+                Planned,
+                Selected
+            }
+
+            private ButtonState _state = ButtonState.Unselected;
+            public ButtonState State
+            {
+                get
+                {
+                    return _state;
+                }
+
+                set
+                {
+                    switch (value)
+                    {
+                        case ButtonState.Unselected:
+                            Background = Brushes.LightGray;
+                            BorderBrush = Brushes.DarkGray;
+                            _state = ButtonState.Unselected;
+                            break;
+                        case ButtonState.Planned:
+                            Background = Brushes.DarkRed;
+                            BorderBrush = Brushes.IndianRed;
+                            _state = ButtonState.Planned;
+                            break;
+                        case ButtonState.Selected:
+                            Background = Brushes.DarkBlue;
+                            BorderBrush = Brushes.CornflowerBlue;
+                            _state = ButtonState.Selected;
+                            break;
+                    }
+                }
+            }
+        }
 
         public MainWindow()
         {
@@ -75,6 +118,8 @@ namespace PokemonTracker
                     GameSelector.Items.Add(desc[0].Description);
                 }
             }
+
+            PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
         }
 
         private void Preferences_OnApplyPreferences()
@@ -92,7 +137,7 @@ namespace PokemonTracker
         private void UpdateImageSet(GameList game)
         {
             _pokemonCnt = 0;
-            PokemonCount.Text = "0";
+            PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
             ImageSet.Children.Clear();
             _previousResourceSet?.ReleaseAllResources();
 
@@ -163,13 +208,17 @@ namespace PokemonTracker
                     object img = resourceManager.GetObject(resourceKeys[i]);
                     BitmapSource convertedImg = (new ImageSourceConverter()).ConvertFrom(img) as BitmapSource;
 
-                    ToggleButton toggle = new ToggleButton();
+                    PokemonButton toggle = new PokemonButton();
+                    toggle.Background = Brushes.LightGray;
                     toggle.Width = PokemonButtonSize;
                     toggle.Height = PokemonButtonSize;
                     toggle.Style = _pokemonSelectorStyle;
+                    toggle.BorderBrush = Brushes.DarkGray;
+                    toggle.BorderThickness = new Thickness(3);
                     toggle.Click += PokemonButton_Click;
                     toggle.KeyDown += KeyDown_DropEvent;
                     toggle.PreviewKeyDown += KeyDown_DropEvent;
+                    toggle.MouseRightButtonDown += Toggle_MouseRightButtonDown;
 
                     Image image = new Image();
                     image.Source = convertedImg;
@@ -180,21 +229,78 @@ namespace PokemonTracker
             }
         }
 
+        /// <summary>
+        /// Handle right click event on PokemonButton, this is used to set planned captures.
+        /// </summary>
+        private void Toggle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PokemonButton button = sender as PokemonButton;
+            if (button != null && button.IsChecked != null)
+            {
+                if (button.State == PokemonButton.ButtonState.Unselected)
+                {
+                    button.State = PokemonButton.ButtonState.Planned;
+                    ++_plannedCnt;
+                }
+                else if (button.State == PokemonButton.ButtonState.Planned)
+                {
+                    button.State = PokemonButton.ButtonState.Unselected;
+                    --_plannedCnt;
+                }
+
+                // Update pokemon count displays
+                if (ShowPlannedPokemon)
+                {
+                    PokemonCount.Text = string.Format("{0} ({1})", _pokemonCnt, _plannedCnt);
+                }
+                else
+                {
+                    PokemonCount.Text = _pokemonCnt.ToString();
+                }
+            }
+        }
+
         private void KeyDown_DropEvent(object sender, KeyEventArgs e)
         {
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Handle left click event on PokemonButton, this is used for tracking completed captures.
+        /// </summary>
         private void PokemonButton_Click(object sender, RoutedEventArgs e)
         {
-            ToggleButton button = sender as ToggleButton;
+            PokemonButton button = sender as PokemonButton;
             if (button != null && button.IsChecked != null)
             {
-                bool selected = button.IsChecked ?? false;
-                int change = (selected) ? 1 : -1;
-                _pokemonCnt += change;
+                button.IsChecked = false;
 
-                PokemonCount.Text = _pokemonCnt.ToString();
+                // update button visuals and counts
+                if (button.State == PokemonButton.ButtonState.Selected)
+                {
+                    button.State = PokemonButton.ButtonState.Unselected;
+                    --_pokemonCnt;
+                    --_plannedCnt;
+                }
+                else
+                {
+                    if (button.State == PokemonButton.ButtonState.Unselected)
+                    {
+                        ++_plannedCnt;
+                    }
+                    ++_pokemonCnt;
+                    button.State = PokemonButton.ButtonState.Selected;
+                }
+
+                // Update pokemon count displays
+                if (ShowPlannedPokemon)
+                {
+                    PokemonCount.Text = string.Format("{0} ({1})", _pokemonCnt, _plannedCnt);
+                }
+                else
+                {
+                    PokemonCount.Text = _pokemonCnt.ToString();
+                }
             }
         }
 

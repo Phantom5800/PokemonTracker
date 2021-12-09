@@ -21,6 +21,11 @@ namespace PokemonTracker.Utils
         {
             InitializeComponent();
             MIT.Text = System.IO.File.ReadAllText("./LICENSE.md");
+            Controls.Text =
+@"Left click - track Pokémon as captured.
+Right click - track Pokémon as planned (cannot overwrite if already captured).
+";
+
             Disclosure.Text =
 @"Pokémon is property of The Pokémon Company, Nintendo Co. Ltd., Game Freak Co. Ltd. and Creatures Inc.
 
