@@ -137,6 +137,7 @@ namespace PokemonTracker
         private void UpdateImageSet(GameList game)
         {
             _pokemonCnt = 0;
+            _plannedCnt = 0;
             PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
             ImageSet.Children.Clear();
             _previousResourceSet?.ReleaseAllResources();
