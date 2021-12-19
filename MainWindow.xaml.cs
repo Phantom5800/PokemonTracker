@@ -327,5 +327,17 @@ namespace PokemonTracker
             Utils.About aboutWnd = new Utils.About();
             aboutWnd.Show();
         }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            _pokemonCnt = 0;
+            _plannedCnt = 0;
+            PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
+
+            foreach (PokemonButton button in ImageSet.Children)
+            {
+                button.State = PokemonButton.ButtonState.Unselected;
+            }
+        }
     }
 }
