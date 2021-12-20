@@ -361,34 +361,37 @@ namespace PokemonTracker
             _pokemonCnt = 0;
             _plannedCnt = 0;
 
-            string resetDataStr = GetResetDataString((GameList)GameSelector.SelectedIndex);
-            List<int> resetData = new List<int>();
-            if (!string.IsNullOrEmpty(resetDataStr))
+            if (GameSelector.SelectedIndex >= 0)
             {
-                string[] resetDataPoints = resetDataStr.Split(',');
-                for (int i = 0; i < resetDataPoints.Length; ++i)
+                string resetDataStr = GetResetDataString((GameList)GameSelector.SelectedIndex);
+                List<int> resetData = new List<int>();
+                if (!string.IsNullOrEmpty(resetDataStr))
                 {
-                    if (int.TryParse(resetDataPoints[i], out int value))
+                    string[] resetDataPoints = resetDataStr.Split(',');
+                    for (int i = 0; i < resetDataPoints.Length; ++i)
                     {
-                        resetData.Add(value);
+                        if (int.TryParse(resetDataPoints[i], out int value))
+                        {
+                            resetData.Add(value);
+                        }
                     }
                 }
-            }
 
-            for (int i = 0; i < ImageSet.Children.Count; ++i)
-            {
-                PokemonButton button = ImageSet.Children[i] as PokemonButton;
-                if (button != null)
+                for (int i = 0; i < ImageSet.Children.Count; ++i)
                 {
-                    if (resetData.Count > 0 && resetData[0] == i)
+                    PokemonButton button = ImageSet.Children[i] as PokemonButton;
+                    if (button != null)
                     {
-                        resetData.Remove(i);
-                        button.State = PokemonButton.ButtonState.Planned;
-                        ++_plannedCnt;
-                    }
-                    else
-                    {
-                        button.State = PokemonButton.ButtonState.Unselected;
+                        if (resetData.Count > 0 && resetData[0] == i)
+                        {
+                            resetData.Remove(i);
+                            button.State = PokemonButton.ButtonState.Planned;
+                            ++_plannedCnt;
+                        }
+                        else
+                        {
+                            button.State = PokemonButton.ButtonState.Unselected;
+                        }
                     }
                 }
             }
@@ -398,32 +401,35 @@ namespace PokemonTracker
 
         private void SavePlanned_Click(object sender, RoutedEventArgs e)
         {
-            List<int> resetData = new List<int>();
-            for (int i = 0; i < ImageSet.Children.Count; ++i)
+            if (GameSelector.SelectedIndex >= 0)
             {
-                PokemonButton button = ImageSet.Children[i] as PokemonButton;
-                if (button != null)
+                List<int> resetData = new List<int>();
+                for (int i = 0; i < ImageSet.Children.Count; ++i)
                 {
-                    if (button.State != PokemonButton.ButtonState.Unselected)
+                    PokemonButton button = ImageSet.Children[i] as PokemonButton;
+                    if (button != null)
                     {
-                        resetData.Add(i);
+                        if (button.State != PokemonButton.ButtonState.Unselected)
+                        {
+                            resetData.Add(i);
+                        }
                     }
                 }
-            }
 
-            string resetDataStr = "";
-            for (int i = 0; i < resetData.Count; ++i)
-            {
-                resetDataStr += resetData[i].ToString();
-                if (i != resetData.Count - 1)
+                string resetDataStr = "";
+                for (int i = 0; i < resetData.Count; ++i)
                 {
-                    resetDataStr += ",";
+                    resetDataStr += resetData[i].ToString();
+                    if (i != resetData.Count - 1)
+                    {
+                        resetDataStr += ",";
+                    }
                 }
-            }
 
-            GameList selectedGame = (GameList)GameSelector.SelectedIndex;
-            SetResetDataString(selectedGame, resetDataStr);
-            MessageBox.Show($"Planned catches for \"{(selectedGame.GetType().GetField(selectedGame.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false)[0] as DescriptionAttribute).Description}\" have been saved.");
+                GameList selectedGame = (GameList)GameSelector.SelectedIndex;
+                SetResetDataString(selectedGame, resetDataStr);
+                MessageBox.Show($"Planned catches for \"{(selectedGame.GetType().GetField(selectedGame.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false)[0] as DescriptionAttribute).Description}\" have been saved.");
+            }
         }
     }
 }
