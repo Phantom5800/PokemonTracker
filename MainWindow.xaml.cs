@@ -2,20 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using PokemonTracker.Properties;
 
 namespace PokemonTracker
 {
@@ -328,16 +322,108 @@ namespace PokemonTracker
             aboutWnd.Show();
         }
 
+        private string GetResetDataString(GameList game)
+        {
+            switch (game)
+            {
+                case GameList.LetsGoEevee:
+                    return Settings.Default.LGEReset;
+                case GameList.LetsGoPikachu:
+                    return Settings.Default.LGPReset;
+                case GameList.Pokepark:
+                    return Settings.Default.PokeparkReset;
+
+                default:
+                    return string.Empty;
+            }
+        }
+
+        private void SetResetDataString(GameList game, string resetInfo)
+        {
+            switch (game)
+            {
+                case GameList.LetsGoEevee:
+                    Settings.Default.LGEReset = resetInfo;
+                    break;
+                case GameList.LetsGoPikachu:
+                    Settings.Default.LGPReset = resetInfo;
+                    break;
+                case GameList.Pokepark:
+                    Settings.Default.PokeparkReset = resetInfo;
+                    break;
+            }
+
+            Settings.Default.Save();
+        }
+
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             _pokemonCnt = 0;
             _plannedCnt = 0;
-            PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
 
-            foreach (PokemonButton button in ImageSet.Children)
+            string resetDataStr = GetResetDataString((GameList)GameSelector.SelectedIndex);
+            List<int> resetData = new List<int>();
+            if (!string.IsNullOrEmpty(resetDataStr))
             {
-                button.State = PokemonButton.ButtonState.Unselected;
+                string[] resetDataPoints = resetDataStr.Split(',');
+                for (int i = 0; i < resetDataPoints.Length; ++i)
+                {
+                    if (int.TryParse(resetDataPoints[i], out int value))
+                    {
+                        resetData.Add(value);
+                    }
+                }
             }
+
+            for (int i = 0; i < ImageSet.Children.Count; ++i)
+            {
+                PokemonButton button = ImageSet.Children[i] as PokemonButton;
+                if (button != null)
+                {
+                    if (resetData.Count > 0 && resetData[0] == i)
+                    {
+                        resetData.Remove(i);
+                        button.State = PokemonButton.ButtonState.Planned;
+                        ++_plannedCnt;
+                    }
+                    else
+                    {
+                        button.State = PokemonButton.ButtonState.Unselected;
+                    }
+                }
+            }
+
+            PokemonCount.Text = string.Format("{0} ({1})", _pokemonCnt, _plannedCnt);
+        }
+
+        private void SavePlanned_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> resetData = new List<int>();
+            for (int i = 0; i < ImageSet.Children.Count; ++i)
+            {
+                PokemonButton button = ImageSet.Children[i] as PokemonButton;
+                if (button != null)
+                {
+                    if (button.State != PokemonButton.ButtonState.Unselected)
+                    {
+                        resetData.Add(i);
+                    }
+                }
+            }
+
+            string resetDataStr = "";
+            for (int i = 0; i < resetData.Count; ++i)
+            {
+                resetDataStr += resetData[i].ToString();
+                if (i != resetData.Count - 1)
+                {
+                    resetDataStr += ",";
+                }
+            }
+
+            GameList selectedGame = (GameList)GameSelector.SelectedIndex;
+            SetResetDataString(selectedGame, resetDataStr);
+            MessageBox.Show($"Planned catches for \"{(selectedGame.GetType().GetField(selectedGame.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false)[0] as DescriptionAttribute).Description}\" have been saved.");
         }
     }
 }
