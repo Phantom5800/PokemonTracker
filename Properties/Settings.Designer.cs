@@ -26,36 +26,12 @@ namespace PokemonTracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LGPReset {
+        public string BN6_Gregar_Reset {
             get {
-                return ((string)(this["LGPReset"]));
+                return ((string)(this["BN6_Gregar_Reset"]));
             }
             set {
-                this["LGPReset"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LGEReset {
-            get {
-                return ((string)(this["LGEReset"]));
-            }
-            set {
-                this["LGEReset"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string PokeparkReset {
-            get {
-                return ((string)(this["PokeparkReset"]));
-            }
-            set {
-                this["PokeparkReset"] = value;
+                this["BN6_Gregar_Reset"] = value;
             }
         }
     }

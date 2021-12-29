@@ -20,26 +20,20 @@ namespace PokemonTracker
     {
         private enum GameList
         {
-            [Description("Let's Go")]
-            LetsGo,
-            [Description("Let's Go, Pikachu (All Obtainable)")]
-            LetsGoPikachu,
-            [Description("Let's Go, Eevee (All Obtainable)")]
-            LetsGoEevee,
-            [Description("Poképark")]
-            Pokepark
+            [Description("Battle Network 6 Gregar")]
+            BN6_Gregar
         }
 
         // program styles
         private Style _pokemonSelectorStyle = new Style(typeof(ToggleButton));
 
         // settings
-        public static int PokemonButtonSize { get; set; } = 50;
+        public static int PokemonButtonSize { get; set; } = 75;
         public static bool ShowPlannedPokemon { get; set; } = true;
 
         // page state
-        private int _pokemonCnt = 0;
-        private int _plannedCnt = 0;
+        private int _battleChipCnt = 0;
+        private int _totalBattleChips = 0;
         private ResourceManager _previousResourceSet = null;
 
         private class PokemonButton : ToggleButton
@@ -68,15 +62,15 @@ namespace PokemonTracker
                             BorderBrush = Brushes.DarkGray;
                             _state = ButtonState.Unselected;
                             break;
-                        case ButtonState.Planned:
-                            Background = Brushes.DarkRed;
-                            BorderBrush = Brushes.IndianRed;
-                            _state = ButtonState.Planned;
-                            break;
                         case ButtonState.Selected:
+                            Background = Brushes.IndianRed;
+                            BorderBrush = Brushes.DarkRed;
+                            _state = ButtonState.Selected;
+                            break;
+                        case ButtonState.Planned:
                             Background = Brushes.DarkBlue;
                             BorderBrush = Brushes.CornflowerBlue;
-                            _state = ButtonState.Selected;
+                            _state = ButtonState.Planned;
                             break;
                     }
                 }
@@ -113,12 +107,12 @@ namespace PokemonTracker
                 }
             }
 
-            PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
+            BattleChipCount.Text = "0 / 0";
         }
 
         private void Preferences_OnApplyPreferences()
         {
-            foreach (var child in ImageSet.Children)
+            foreach (var child in BattleChipSet.Children)
             {
                 ToggleButton button = child as ToggleButton;
                 if (button != null)
@@ -130,34 +124,26 @@ namespace PokemonTracker
 
         private void UpdateImageSet(GameList game)
         {
-            _pokemonCnt = 0;
-            _plannedCnt = 0;
-            PokemonCount.Text = (ShowPlannedPokemon) ? "0 (0)" : "0";
-            ImageSet.Children.Clear();
+            _battleChipCnt = 0;
+            _totalBattleChips = 0;
+            BattleChipSet.Children.Clear();
             _previousResourceSet?.ReleaseAllResources();
 
             switch (game)
             {
-                case GameList.LetsGo:
-                case GameList.LetsGoPikachu:
-                case GameList.LetsGoEevee:
-                    BuildImageSetFromResources(PokemonTracker.Resources.LetsGo.ResourceManager, GetDropFilter(game));
-                    break;
-
-                case GameList.Pokepark:
-                    BuildImageSetFromResources(PokemonTracker.Resources.Pokepark.ResourceManager);
+                case GameList.BN6_Gregar:
+                    BuildImageSetFromResources(PokemonTracker.Resources.BN6Chips.ResourceManager, GetDropFilter(game));
                     break;
             }
+            BattleChipCount.Text = $"0 / {_totalBattleChips}";
         }
 
         private string[] GetDropFilter(GameList game)
         {
             switch (game)
             {
-                case GameList.LetsGoEevee:
-                    return new string[] { "(Pikachu)", "(Trade)", "(Mythic)" };
-                case GameList.LetsGoPikachu:
-                    return new string[] { "(Eevee)", "(Trade)", "(Mythic)" };
+                case GameList.BN6_Gregar:
+                    return new string[] { "(Falzar)", "(Jp)" };
             }
             return null;
         }
@@ -197,6 +183,7 @@ namespace PokemonTracker
                     }
                 }
                 resourceKeys.Sort();
+                _totalBattleChips = resourceKeys.Count;
 
                 for (int i = 0; i < resourceKeys.Count; ++i)
                 {
@@ -209,48 +196,16 @@ namespace PokemonTracker
                     toggle.Height = PokemonButtonSize;
                     toggle.Style = _pokemonSelectorStyle;
                     toggle.BorderBrush = Brushes.DarkGray;
-                    toggle.BorderThickness = new Thickness(3);
+                    toggle.BorderThickness = new Thickness(10);
                     toggle.Click += PokemonButton_Click;
                     toggle.KeyDown += KeyDown_DropEvent;
                     toggle.PreviewKeyDown += KeyDown_DropEvent;
-                    toggle.MouseRightButtonDown += Toggle_MouseRightButtonDown;
 
                     Image image = new Image();
                     image.Source = convertedImg;
 
                     toggle.Content = image;
-                    ImageSet.Children.Add(toggle);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Handle right click event on PokemonButton, this is used to set planned captures.
-        /// </summary>
-        private void Toggle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            PokemonButton button = sender as PokemonButton;
-            if (button != null && button.IsChecked != null)
-            {
-                if (button.State == PokemonButton.ButtonState.Unselected)
-                {
-                    button.State = PokemonButton.ButtonState.Planned;
-                    ++_plannedCnt;
-                }
-                else if (button.State == PokemonButton.ButtonState.Planned)
-                {
-                    button.State = PokemonButton.ButtonState.Unselected;
-                    --_plannedCnt;
-                }
-
-                // Update pokemon count displays
-                if (ShowPlannedPokemon)
-                {
-                    PokemonCount.Text = string.Format("{0} ({1})", _pokemonCnt, _plannedCnt);
-                }
-                else
-                {
-                    PokemonCount.Text = _pokemonCnt.ToString();
+                    BattleChipSet.Children.Add(toggle);
                 }
             }
         }
@@ -274,28 +229,16 @@ namespace PokemonTracker
                 if (button.State == PokemonButton.ButtonState.Selected)
                 {
                     button.State = PokemonButton.ButtonState.Unselected;
-                    --_pokemonCnt;
-                    --_plannedCnt;
+                    --_battleChipCnt;
                 }
                 else
                 {
-                    if (button.State == PokemonButton.ButtonState.Unselected)
-                    {
-                        ++_plannedCnt;
-                    }
-                    ++_pokemonCnt;
+                    ++_battleChipCnt;
                     button.State = PokemonButton.ButtonState.Selected;
                 }
 
                 // Update pokemon count displays
-                if (ShowPlannedPokemon)
-                {
-                    PokemonCount.Text = string.Format("{0} ({1})", _pokemonCnt, _plannedCnt);
-                }
-                else
-                {
-                    PokemonCount.Text = _pokemonCnt.ToString();
-                }
+                BattleChipCount.Text = string.Format("{0} / {1}", _battleChipCnt, _totalBattleChips);
             }
         }
 
@@ -326,12 +269,8 @@ namespace PokemonTracker
         {
             switch (game)
             {
-                case GameList.LetsGoEevee:
-                    return Settings.Default.LGEReset;
-                case GameList.LetsGoPikachu:
-                    return Settings.Default.LGPReset;
-                case GameList.Pokepark:
-                    return Settings.Default.PokeparkReset;
+                case GameList.BN6_Gregar:
+                    return Settings.Default.BN6_Gregar_Reset;
 
                 default:
                     return string.Empty;
@@ -342,14 +281,8 @@ namespace PokemonTracker
         {
             switch (game)
             {
-                case GameList.LetsGoEevee:
-                    Settings.Default.LGEReset = resetInfo;
-                    break;
-                case GameList.LetsGoPikachu:
-                    Settings.Default.LGPReset = resetInfo;
-                    break;
-                case GameList.Pokepark:
-                    Settings.Default.PokeparkReset = resetInfo;
+                case GameList.BN6_Gregar:
+                    Settings.Default.BN6_Gregar_Reset = resetInfo;
                     break;
             }
 
@@ -358,8 +291,7 @@ namespace PokemonTracker
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            _pokemonCnt = 0;
-            _plannedCnt = 0;
+            _battleChipCnt = 0;
 
             if (GameSelector.SelectedIndex >= 0)
             {
@@ -377,16 +309,16 @@ namespace PokemonTracker
                     }
                 }
 
-                for (int i = 0; i < ImageSet.Children.Count; ++i)
+                for (int i = 0; i < BattleChipSet.Children.Count; ++i)
                 {
-                    PokemonButton button = ImageSet.Children[i] as PokemonButton;
+                    PokemonButton button = BattleChipSet.Children[i] as PokemonButton;
                     if (button != null)
                     {
                         if (resetData.Count > 0 && resetData[0] == i)
                         {
                             resetData.Remove(i);
-                            button.State = PokemonButton.ButtonState.Planned;
-                            ++_plannedCnt;
+                            button.State = PokemonButton.ButtonState.Selected;
+                            ++_battleChipCnt;
                         }
                         else
                         {
@@ -396,7 +328,8 @@ namespace PokemonTracker
                 }
             }
 
-            PokemonCount.Text = string.Format("{0} ({1})", _pokemonCnt, _plannedCnt);
+            BattleChipCount.Text = string.Format("{0} / {1}", _battleChipCnt, _totalBattleChips);
+            //PACount.Text = string.Format("{0} / {1}", _battleChipCnt, _totalBattleChips);
         }
 
         private void SavePlanned_Click(object sender, RoutedEventArgs e)
@@ -404,9 +337,9 @@ namespace PokemonTracker
             if (GameSelector.SelectedIndex >= 0)
             {
                 List<int> resetData = new List<int>();
-                for (int i = 0; i < ImageSet.Children.Count; ++i)
+                for (int i = 0; i < BattleChipSet.Children.Count; ++i)
                 {
-                    PokemonButton button = ImageSet.Children[i] as PokemonButton;
+                    PokemonButton button = BattleChipSet.Children[i] as PokemonButton;
                     if (button != null)
                     {
                         if (button.State != PokemonButton.ButtonState.Unselected)

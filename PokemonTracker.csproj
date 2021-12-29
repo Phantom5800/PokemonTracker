@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <AssemblyName>BattleChipTracker</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,32 +13,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="Resources\LetsGo.Designer.cs">
+    <Compile Update="Resources\BN6Chips.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>LetsGo.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Pokepark.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Pokepark.resx</DependentUpon>
+      <DependentUpon>BN6Chips.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\LetsGo.resx">
+    <EmbeddedResource Update="Resources\BN6Chips.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>LetsGo.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <LastGenOutput>BN6Chips.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Pokepark.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Pokepark.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Pokepark\" />
   </ItemGroup>
 
   <ItemGroup>
