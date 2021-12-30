@@ -20,8 +20,14 @@ namespace PokemonTracker
     {
         private enum GameList
         {
-            [Description("Battle Network 6 Gregar")]
-            BN6_Gregar
+            [Description("BN6 Gregar")]
+            BN6_Gregar,
+            [Description("EXE6 Gregar (Jp)")]
+            EXE6_Gregar,
+            [Description("BN6 Falzar")]
+            BN6_Falzar,
+            [Description("EXE6 Falzar (Jp)")]
+            EXE6_Falzar
         }
 
         // program styles
@@ -132,6 +138,9 @@ namespace PokemonTracker
             switch (game)
             {
                 case GameList.BN6_Gregar:
+                case GameList.EXE6_Gregar:
+                case GameList.BN6_Falzar:
+                case GameList.EXE6_Falzar:
                     BuildImageSetFromResources(PokemonTracker.Resources.BN6Chips.ResourceManager, GetDropFilter(game));
                     break;
             }
@@ -144,6 +153,12 @@ namespace PokemonTracker
             {
                 case GameList.BN6_Gregar:
                     return new string[] { "(Falzar)", "(Jp)" };
+                case GameList.EXE6_Gregar:
+                    return new string[] { "(Falzar)" };
+                case GameList.BN6_Falzar:
+                    return new string[] { "(Gregar)", "(Jp)" };
+                case GameList.EXE6_Falzar:
+                    return new string[] { "(Gregar)" };
             }
             return null;
         }
@@ -271,6 +286,12 @@ namespace PokemonTracker
             {
                 case GameList.BN6_Gregar:
                     return Settings.Default.BN6_Gregar_Reset;
+                case GameList.BN6_Falzar:
+                    return Settings.Default.BN6_Falzar_Reset;
+                case GameList.EXE6_Gregar:
+                    return Settings.Default.EXE6_Gregar_Reset;
+                case GameList.EXE6_Falzar:
+                    return Settings.Default.EXE6_Falzar_Reset;
 
                 default:
                     return string.Empty;
@@ -283,6 +304,15 @@ namespace PokemonTracker
             {
                 case GameList.BN6_Gregar:
                     Settings.Default.BN6_Gregar_Reset = resetInfo;
+                    break;
+                case GameList.BN6_Falzar:
+                    Settings.Default.BN6_Falzar_Reset = resetInfo;
+                    break;
+                case GameList.EXE6_Gregar:
+                    Settings.Default.EXE6_Gregar_Reset = resetInfo;
+                    break;
+                case GameList.EXE6_Falzar:
+                    Settings.Default.EXE6_Falzar_Reset = resetInfo;
                     break;
             }
 

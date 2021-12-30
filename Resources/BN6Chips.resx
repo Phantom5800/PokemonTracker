@@ -898,4 +898,34 @@
   <data name="_259 (Jp)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>BN6\259.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="_263 (Gregar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\263.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_264 (Gregar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\264.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_265 (Gregar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\265.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_266 (Gregar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\266.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_267 (Gregar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\267.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_268 (Falzar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\268.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_269 (Falzar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\269.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_270 (Falzar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\270.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_271 (Falzar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\271.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_272 (Falzar)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>BN6\272.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

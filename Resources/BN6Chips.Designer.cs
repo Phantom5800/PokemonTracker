@@ -2659,5 +2659,105 @@ namespace PokemonTracker.Resources {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _263__Gregar_ {
+            get {
+                object obj = ResourceManager.GetObject("_263 (Gregar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _264__Gregar_ {
+            get {
+                object obj = ResourceManager.GetObject("_264 (Gregar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _265__Gregar_ {
+            get {
+                object obj = ResourceManager.GetObject("_265 (Gregar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _266__Gregar_ {
+            get {
+                object obj = ResourceManager.GetObject("_266 (Gregar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _267__Gregar_ {
+            get {
+                object obj = ResourceManager.GetObject("_267 (Gregar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _268__Falzar_ {
+            get {
+                object obj = ResourceManager.GetObject("_268 (Falzar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _269__Falzar_ {
+            get {
+                object obj = ResourceManager.GetObject("_269 (Falzar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _270__Falzar_ {
+            get {
+                object obj = ResourceManager.GetObject("_270 (Falzar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _271__Falzar_ {
+            get {
+                object obj = ResourceManager.GetObject("_271 (Falzar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _272__Falzar_ {
+            get {
+                object obj = ResourceManager.GetObject("_272 (Falzar)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

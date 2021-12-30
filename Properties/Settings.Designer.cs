@@ -34,5 +34,41 @@ namespace PokemonTracker.Properties {
                 this["BN6_Gregar_Reset"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BN6_Falzar_Reset {
+            get {
+                return ((string)(this["BN6_Falzar_Reset"]));
+            }
+            set {
+                this["BN6_Falzar_Reset"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EXE6_Gregar_Reset {
+            get {
+                return ((string)(this["EXE6_Gregar_Reset"]));
+            }
+            set {
+                this["EXE6_Gregar_Reset"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EXE6_Falzar_Reset {
+            get {
+                return ((string)(this["EXE6_Falzar_Reset"]));
+            }
+            set {
+                this["EXE6_Falzar_Reset"] = value;
+            }
+        }
     }
 }
